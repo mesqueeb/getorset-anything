@@ -46,7 +46,10 @@
     "obj-set-get",
     "map-util",
     "obj-util",
-    "setget"
+    "setget",
+    "getset",
+    "getter-setter",
+    "setter-getter"
   ],
   "author": "Luca Ban - Mesqueeb",
   "funding": "https://github.com/sponsors/mesqueeb",
