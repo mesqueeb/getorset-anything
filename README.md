@@ -38,7 +38,6 @@ Maps
 ```ts
 import { mapGetOrSet } from 'getorset-anything'
 
-
 const map = new Map<string, number[]>()
 
 const arr = mapGetOrSet(map, 'abc', () => [])
@@ -50,7 +49,6 @@ Objects
 
 ```ts
 import { objGetOrSet } from 'getorset-anything'
-
 
 const obj: Record<string, number[]> = {}
 
