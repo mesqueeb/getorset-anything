@@ -1,0 +1,8 @@
+node_modules/
+.vscode
+.cache
+.env
+.env.js
+.rpt2_cache
+.DS_Store
+_playground.*
