@@ -12,7 +12,7 @@ declare type ValueOfMap<M extends Map<unknown, unknown>> = M extends Map<unknown
  * arr.push('xyz')
  * ```
  */
-export declare function mapGetOrSet<M extends Map<unknown, unknown>>(map: M, key: KeyOfMap<M>, initialValue: () => ValueOfMap<M>): ValueOfMap<M>;
+export declare function mapGetOrSet<M extends Map<unknown, unknown>, T extends () => ValueOfMap<M>>(map: M, key: KeyOfMap<M>, initialValue: T): ReturnType<T>;
 /**
  * Retrieve the value in an object, or if it wasn't found, set an initial value and return that.
  *
@@ -25,5 +25,5 @@ export declare function mapGetOrSet<M extends Map<unknown, unknown>>(map: M, key
  * arr.push('xyz')
  * ```
  */
-export declare function objGetOrSet<O extends Record<string | number | symbol, unknown>>(obj: O, key: keyof O, initialValue: () => O[keyof O]): O[keyof O];
+export declare function objGetOrSet<O extends Record<string | number | symbol, unknown>, T extends () => O[keyof O]>(obj: O, key: keyof O, initialValue: T): ReturnType<T>;
 export {};
