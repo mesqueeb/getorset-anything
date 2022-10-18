@@ -1,6 +1,6 @@
 {
   "name": "getorset-anything",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "sideEffects": false,
   "type": "module",
   "description": "Gets a value from a Map/Obj or sets an initial value when not found and returns that. TypeScript supported.",
