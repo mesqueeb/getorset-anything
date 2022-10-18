@@ -14,17 +14,17 @@ type ValueOfMap<M extends Map<unknown, unknown>> = M extends Map<unknown, infer 
  * arr.push('xyz')
  * ```
  */
-export function mapGetOrSet<M extends Map<unknown, unknown>>(
+export function mapGetOrSet<M extends Map<unknown, unknown>, T extends () => ValueOfMap<M>>(
   map: M,
   key: KeyOfMap<M>,
-  initialValue: () => ValueOfMap<M>
-): ValueOfMap<M> {
+  initialValue: T
+): ReturnType<T> {
   let val = map.get(key)
   if (val === undefined) {
     val = initialValue()
     map.set(key, val)
   }
-  return val as ValueOfMap<M>
+  return val as any
 }
 
 /**
@@ -39,15 +39,14 @@ export function mapGetOrSet<M extends Map<unknown, unknown>>(
  * arr.push('xyz')
  * ```
  */
-export function objGetOrSet<O extends Record<string | number | symbol, unknown>>(
-  obj: O,
-  key: keyof O,
-  initialValue: () => O[keyof O]
-): O[keyof O] {
+export function objGetOrSet<
+  O extends Record<string | number | symbol, unknown>,
+  T extends () => O[keyof O]
+>(obj: O, key: keyof O, initialValue: T): ReturnType<T> {
   let val = obj[key]
   if (val === undefined) {
     val = initialValue()
     obj[key] = val
   }
-  return val
+  return val as any
 }
