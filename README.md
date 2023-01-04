@@ -40,7 +40,7 @@ import { mapGetOrSet } from 'getorset-anything'
 
 const map = new Map<string, number[]>()
 
-const arr = mapGetOrSet(map, 'abc', () => [])
+const arr = mapGetOrSet(map, 'abc', (): number[] => [])
 
 arr.push(100) // OK!
 ```
@@ -52,7 +52,7 @@ import { objGetOrSet } from 'getorset-anything'
 
 const obj: Record<string, number[]> = {}
 
-const arr = objGetOrSet(obj, 'abc', () => [])
+const arr = objGetOrSet(obj, 'abc', (): number[] => [])
 
 arr.push(100) // OK!
 ```
