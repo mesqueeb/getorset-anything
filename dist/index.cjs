@@ -1,7 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 /**
  * Retrieve the value in a map, or if it wasn't found, set an initial value and return that.
  *
