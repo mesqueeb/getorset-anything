@@ -54,9 +54,6 @@
   "author": "Luca Ban - Mesqueeb",
   "funding": "https://github.com/sponsors/mesqueeb",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mesqueeb/getorset-anything/issues"
-  },
   "homepage": "https://github.com/mesqueeb/getorset-anything#readme",
   "dependencies": {},
   "devDependencies": {
