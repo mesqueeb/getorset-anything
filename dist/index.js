@@ -14,5 +14,13 @@ function objGetOrSet(obj, key, initialValue) {
   }
   return val;
 }
+function arrGetOrSet(arr, index, initialValue) {
+  let val = arr[index];
+  if (val === void 0) {
+    val = initialValue();
+    arr[index] = val;
+  }
+  return val;
+}
 
-export { mapGetOrSet, objGetOrSet };
+export { arrGetOrSet, mapGetOrSet, objGetOrSet };

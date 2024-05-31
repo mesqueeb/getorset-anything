@@ -1,5 +1,5 @@
 import { test, expect } from 'vitest'
-import { mapGetOrSet, objGetOrSet } from '../src/index'
+import { arrGetOrSet, mapGetOrSet, objGetOrSet } from '../src/index'
 
 test('mapGetOrSet', () => {
   const map = new Map<string, number[]>()
@@ -31,4 +31,13 @@ test('objGetOrSet - partial', () => {
   const res = objGetOrSet(obj, 'a', () => 123)
 
   expect(res).toEqual(123)
+})
+
+test('arrGetOrSet', () => {
+  const arr: number[] = []
+
+  const val = arrGetOrSet(arr, 1, () => 123)
+
+  expect(val).toEqual(123)
+  expect(arr).toEqual([undefined, 123])
 })
