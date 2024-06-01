@@ -18,7 +18,7 @@ type ValueOfMap<M extends Map<unknown, unknown>> = M extends Map<unknown, infer 
 export function mapGetOrSet<M extends Map<unknown, unknown>, T extends () => ValueOfMap<M>>(
   map: M,
   key: KeyOfMap<M>,
-  initialValue: T
+  initialValue: T,
 ): ReturnType<T> {
   let val = map.get(key)
   if (val === undefined) {
@@ -42,8 +42,8 @@ export function mapGetOrSet<M extends Map<unknown, unknown>, T extends () => Val
  * ```
  */
 export function objGetOrSet<
-  O extends Record<string | number | symbol, unknown>,
-  T extends () => O[keyof O]
+  O extends { [key in string | number | symbol]: unknown },
+  T extends () => O[keyof O],
 >(obj: O, key: keyof O, initialValue: T): ReturnType<T> {
   let val = obj[key]
   if (val === undefined) {
@@ -67,7 +67,7 @@ export function objGetOrSet<
 export function arrGetOrSet<A extends unknown[], T extends () => A[number]>(
   arr: A,
   index: number,
-  initialValue: T
+  initialValue: T,
 ): ReturnType<T> {
   let val = arr[index]
   if (val === undefined) {

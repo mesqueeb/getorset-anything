@@ -1,5 +1,5 @@
-import { test, expect } from 'vitest'
-import { arrGetOrSet, mapGetOrSet, objGetOrSet } from '../src/index'
+import { expect, test } from 'vitest'
+import { arrGetOrSet, mapGetOrSet, objGetOrSet } from '../src/index.js'
 
 test('mapGetOrSet', () => {
   const map = new Map<string, number[]>()
