@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest'
-import { arrGetOrSet, mapGetOrSet, objGetOrSet } from '../src/index.js'
+import { arrGetOrSet, mapGetOrSet, objGetOrSet, weakMapGetOrSet } from '../src/index.js'
 
 test('mapGetOrSet', () => {
   const map = new Map<string, number[]>()
@@ -13,8 +13,21 @@ test('mapGetOrSet', () => {
   expect(map.get('abc')).toEqual([100])
 })
 
+test('weakMapGetOrSet', () => {
+  const map = new WeakMap<object, number[]>()
+
+  const key = {}
+  const arr = weakMapGetOrSet(map, key, (): number[] => [])
+
+  expect(arr).toEqual([])
+
+  arr.push(100)
+
+  expect(map.get(key)).toEqual([100])
+})
+
 test('objGetOrSet', () => {
-  const obj: Record<string, number[]> = {}
+  const obj: { [key in string]: number[] } = {}
 
   const arr = objGetOrSet(obj, 'abc', (): number[] => [])
 
