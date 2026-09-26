@@ -1,6 +1,6 @@
 {
   "name": "@mesqueeb/getorset-anything",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "exports": "./src/index.ts",
   "publish": {
     "include": ["src/**", "README.md", "LICENSE"]
